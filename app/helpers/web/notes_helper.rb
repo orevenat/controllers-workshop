@@ -1,0 +1,2 @@
+module Web::NotesHelper
+end

@@ -1,0 +1,16 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+DEFAULTS: &DEFAULTS
+ title: MyString
+
+
+one:
+  <<: *DEFAULTS
+  user: one
+  body: MyText
+
+two:
+  <<: *DEFAULTS
+  user: two
+  title: MyString2
+  body: MyText2
