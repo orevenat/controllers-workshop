@@ -1,9 +1,24 @@
 require 'test_helper'
 
 class Web::NotesControllerTest < ActionDispatch::IntegrationTest
-  test "should get index" do
-    get web_notes_index_url
+  test '#index' do
+    get notes_url
     assert_response :success
   end
 
+  test '#new' do
+    get new_note_url
+    assert_response :success
+  end
+
+  test '#create' do
+    title = 'title'
+    body = <<~MD
+      # Title
+
+      - item
+      - item
+    MD
+    post notes_url, params: { note: {  title: title, body: body } }
+  end
 end
