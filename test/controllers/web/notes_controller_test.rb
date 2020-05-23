@@ -20,5 +20,6 @@ class Web::NotesControllerTest < ActionDispatch::IntegrationTest
       - item
     MD
     post notes_url, params: { note: {  title: title, body: body } }
+    assert_response :redirect
   end
 end
