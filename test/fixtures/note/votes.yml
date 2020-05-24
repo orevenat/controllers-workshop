@@ -3,9 +3,19 @@
 one:
   user: one
   note: one
-  body: MyText
+  status: 1
 
 two:
   user: two
   note: two
-  body: MyText2
+  status: 0
+
+one_to_two:
+  user: one
+  note: two
+  status: 0
+
+two_to_one:
+  user: two
+  note: one
+  status: 1

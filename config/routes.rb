@@ -5,6 +5,7 @@ Rails.application.routes.draw do
     resources :notes, only: %i[index show new create] do
       scope module: :notes do
         resources :comments, only: %i[new create]
+        resources :votes, only: %i[create update]
       end
     end
 

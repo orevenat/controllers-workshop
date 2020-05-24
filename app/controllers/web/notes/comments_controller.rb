@@ -1,25 +1,21 @@
 # frozen_string_literal: true
 
-class Web::Notes::CommentsController < Web::ApplicationController
+class Web::Notes::CommentsController < Web::Notes::ApplicationController
   def new
-    @comment = note.comments.build
+    @comment = resource_note.comments.build
   end
 
   def create
-    @comment = note.comments.build(create_params)
+    @comment = resource_note.comments.build(create_params)
     if @comment.save
       f(:success)
-      redirect_to note_path(note)
+      redirect_to note_path(resource_note)
     else
       render :new
     end
   end
 
   private
-
-  def note
-    @note ||= Note.find(params[:note_id])
-  end
 
   def create_params
     params.require(:note_comment).permit(:body).merge(user_id: current_user.id)

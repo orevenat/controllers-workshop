@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_23_131333) do
+ActiveRecord::Schema.define(version: 2020_05_24_153937) do
 
   create_table "note_comments", force: :cascade do |t|
     t.integer "user_id", null: false
@@ -20,6 +20,16 @@ ActiveRecord::Schema.define(version: 2020_05_23_131333) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["note_id"], name: "index_note_comments_on_note_id"
     t.index ["user_id"], name: "index_note_comments_on_user_id"
+  end
+
+  create_table "note_votes", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "note_id", null: false
+    t.integer "status"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["note_id"], name: "index_note_votes_on_note_id"
+    t.index ["user_id"], name: "index_note_votes_on_user_id"
   end
 
   create_table "notes", force: :cascade do |t|
@@ -43,5 +53,7 @@ ActiveRecord::Schema.define(version: 2020_05_23_131333) do
 
   add_foreign_key "note_comments", "notes"
   add_foreign_key "note_comments", "users"
+  add_foreign_key "note_votes", "notes"
+  add_foreign_key "note_votes", "users"
   add_foreign_key "notes", "users"
 end
