@@ -1,0 +1,11 @@
+%h2= @note.title
+%p= @note.body
+
+= link_to t('new_comment'), new_note_comment_path(@note)
+
+%hr
+
+- @note_comments.each do |comment|
+  %li= comment.body
+  %hr
+

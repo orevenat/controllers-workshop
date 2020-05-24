@@ -9,7 +9,7 @@ class Web::Notes::CommentsController < Web::ApplicationController
     @comment = note.comments.build(create_params)
     if @comment.save
       f(:success)
-      redirect_to notes_path
+      redirect_to note_path(note)
     else
       render :new
     end
