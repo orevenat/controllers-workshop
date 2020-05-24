@@ -5,6 +5,11 @@ class Web::NotesController < Web::ApplicationController
     @notes = Note.all
   end
 
+  def show
+    @note = Note.find(params[:id])
+    @note_comments = @note.comments
+  end
+
   def new
     @note = Note.new
   end

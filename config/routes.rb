@@ -2,7 +2,7 @@
 
 Rails.application.routes.draw do
   scope module: :web do
-    resources :notes, only: %i[index new create] do
+    resources :notes, only: %i[index show new create] do
       scope module: :notes do
         resources :comments, only: %i[new create]
       end

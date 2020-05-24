@@ -1,4 +1,5 @@
 - @notes.each do |note|
   %li
-    %h3= note.title
+    %h3
+      %a= link_to note.title, note_path(note)
     %p= note.body

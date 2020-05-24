@@ -8,6 +8,12 @@ class Web::NotesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test '#show' do
+    note = notes(:one)
+    get note_path(note)
+    assert_response :success
+  end
+
   test '#new' do
     get new_note_url
     assert_response :success
