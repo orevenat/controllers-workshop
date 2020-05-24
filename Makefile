@@ -15,11 +15,13 @@ install-pry:
 install-powerassert:
 	rails app:template LOCATION='https://railsbytes.com/script/xjNsY4'
 
+lint:
+	bundle exec rubocop
+
 test:
 	bin/rails test
 
 c:
 	bin/rails console
-
 
 .PHONY: app test
