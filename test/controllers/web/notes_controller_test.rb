@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class Web::NotesControllerTest < ActionDispatch::IntegrationTest
@@ -19,7 +21,7 @@ class Web::NotesControllerTest < ActionDispatch::IntegrationTest
       - item
       - item
     MD
-    post notes_url, params: { note: {  title: title, body: body } }
+    post notes_url, params: { note: { title: title, body: body } }
     assert_response :redirect
   end
 end

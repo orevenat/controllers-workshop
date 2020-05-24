@@ -8,7 +8,6 @@ Rails.application.routes.draw do
       end
     end
 
-
     namespace :my do
       resources :notes, only: %i[index]
     end

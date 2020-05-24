@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'test_helper'
 
 class Web::Notes::CommentsControllerTest < ActionDispatch::IntegrationTest
@@ -15,7 +17,7 @@ class Web::Notes::CommentsControllerTest < ActionDispatch::IntegrationTest
       - item
       - item
     MD
-    post note_comments_url(note), params: { note_comment: {  body: body } }
+    post note_comments_url(note), params: { note_comment: { body: body } }
     assert_response :redirect
   end
 end
