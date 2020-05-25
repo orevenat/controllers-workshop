@@ -30,8 +30,6 @@ jobs:
         ruby-version: 2.6.5
     - name: Install dependencies
       run: |
-        gem uninstall -aIx bundler
-        gem install bundler -v 1.17.3
         bundle install --jobs 4 --retry 3
         yarn install
     - name: Assets
