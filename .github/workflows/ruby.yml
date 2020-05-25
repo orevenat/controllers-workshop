@@ -28,13 +28,22 @@ jobs:
       uses: ruby/setup-ruby@ec106b438a1ff6ff109590de34ddc62c540232e0
       with:
         ruby-version: 2.6.5
+
     - name: Install dependencies
       run: |
         bundle install --jobs 4 --retry 3
         yarn install
+
     - name: Assets
       run: bundle exec rake assets:precompile
+
     - name: Lint
       run: make lint
+
     - name: Run tests
-      run: make test
+      env:
+        COVERAGE: true
+        RAILS_ENV: test
+        CI_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+      run: |
+        make test
