@@ -30,6 +30,8 @@ jobs:
         ruby-version: 2.6.5
     - name: Install dependencies
       run: bundle install
+    - name: Assets
+      run: bundle exec rake assets:precompile
     - name: Lint
       run: make lint
     - name: Run tests
